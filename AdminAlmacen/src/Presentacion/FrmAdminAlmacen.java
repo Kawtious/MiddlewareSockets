@@ -4,6 +4,7 @@
  */
 package Presentacion;
 
+import Datos.Venta;
 import java.awt.Color;
 import java.awt.Insets;
 import java.io.IOException;
@@ -19,7 +20,7 @@ import javax.swing.UIManager;
  *
  * @author Equipo 5
  */
-public class FrmAdminAlmacen extends javax.swing.JFrame {
+public class FrmAdminAlmacen extends javax.swing.JFrame implements IUpdate {
 
     private final static int UI_THEME = 1;
     private final static String VERSION = "0.0.1";
@@ -126,6 +127,22 @@ public class FrmAdminAlmacen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     *
+     * @param message
+     */
+    @Override
+    public void updateClient(Object message) {
+        System.out.println("[Client] Incoming data: " + message.getClass());
+
+        if (message instanceof Venta) {
+            System.out.println("[Client] Receiving data...");
+
+            //
+            System.out.println("[Client] Data updated!");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
